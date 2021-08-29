@@ -1,25 +1,43 @@
 ( function (){
 'use strict';
 
-angular.module('countFoodLunch',[])
+angular.module('checkLunch',[])
 
-.controller('countFoodLunchController', function($scope){
+.controller('checkLunchController', function($scope){
     $scope.inputUser = "";
     $scope.wordList = "";
+    $scope.message = "";
+    $scope.checked = false;
 
-    $scope.displayWords = function () {
-        var words = splitStringComma($scope.inputUser);
-        $scope.wordList = words;
+    $scope.checkLunch = function () {
+        /*console.log($scope.inputUser.length != 0);*/
+        if ($scope.inputUser.length != 0){
+            $scope.checked = true;
+            splitStringComma($scope.inputUser);
+            /*console.log($scope.wordList);*/
+        }
+        else{
+            $scope.empty = true;
+        }
     };
 
     function splitStringComma(string){
-        var strUser = string;
-        var words = strUser.split(',');
-        console.log(words);
-        return words;
+        var words = string.split(',');
+        $scope.wordList = words;
+        var result = validateLengthInputUser(words);
+        /*console.log("the list of words ingresed by the user was: " + words + " and the result the system was " +result);*/
+        return result;
     };
 
-
+    function validateLengthInputUser(string){
+        if(string.length <=3){
+            $scope.message = 'Enjoy!';
+        }else {
+            $scope.message = 'Too much!';
+        }
+        return $scope.message;
+    }
+    
 });
 
 
