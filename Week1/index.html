@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyFirstApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Hello coursera</title>
+</head>
+<body>
+    <h1>My first AngularJs App</h1>
+    <div ng-controller="MyFirstController">
+        <!--{{name}}
+        {{sayHello()}}-->
+        <p>Write your name here<input type="text" ng-model="name"></p>
+        <p> The name entered was {{name}}</p>
+    </div>
+</body>
+</html>
